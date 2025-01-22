@@ -2,6 +2,8 @@
 
 import AbstractMobilePhone from '../Images/AbstractMobilePhone.png';
 
+import { useOutletContext } from 'react-router-dom';
+
 
 
 
@@ -103,6 +105,11 @@ const footerNavigation = {
 
 
 export default function HomePage() {
+
+    const { x } = useOutletContext();
+
+
+
     return (
         <div className="bg-gray-900">
             <main>
