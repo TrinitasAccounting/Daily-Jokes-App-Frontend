@@ -159,7 +159,7 @@ export default function HomePage() {
                                 className="h-11"
                             /> */}
                             <div className="mt-24 sm:mt-32 lg:mt-16">
-                                <a href="#" className="inline-flex space-x-6">
+                                <a href="/jokes" className="inline-flex space-x-6">
                                     <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm/6 font-semibold text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
                                         Browse Last Year's Jokes
                                     </span>
@@ -170,11 +170,10 @@ export default function HomePage() {
                                 </a>
                             </div>
                             <h1 className="mt-10 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-                                Deploy to the cloud with confidence
+                                A Dad Joke A Day Keeps the Stress Away
                             </h1>
                             <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
-                                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-                                fugiat veniam occaecat.
+                                Join the thousands of users who realize one simple thing...dad jokes are the greatest blessing dads gave us
                             </p>
                             <div className="mt-10 flex items-center gap-x-6">
                                 <a

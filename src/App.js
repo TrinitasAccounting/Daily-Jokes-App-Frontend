@@ -1,6 +1,7 @@
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import moment from "moment";
 
 import { Outlet, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -19,6 +20,8 @@ function App() {
 
   const [allJokes, setAllJokes] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+  const [openAddNewJokePopUp, setOpenAddNewJokePopUp] = useState(false)
+  let currentDate = moment().format("MM-DD-YYYY")
 
   let x = 47;
 
@@ -62,6 +65,23 @@ function App() {
       })
   }
 
+  // DELETE fetch to the backend (will have turned off until authentication development is completed)
+  function deleteJoke(id) {
+    fetch(`https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => {
+        if (res.ok) {
+          setAllJokes(jokes => jokes.filter(joke => {
+            return joke.jokeId !== id
+          }))
+        }
+        else if (res.status === 400) {
+          res.json().then(errorData => alert(`Error: ${errorData.error}`))
+        }
+      })
+  }
+
 
 
 
@@ -89,6 +109,11 @@ function App() {
 
       <Outlet context={{
         allJokes,
+        openAddNewJokePopUp,
+        setOpenAddNewJokePopUp,
+        addNewJoke,
+        deleteJoke,
+        currentDate
       }} />
     </div>
 

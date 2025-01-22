@@ -1,6 +1,7 @@
 
 import JokesTableHeader from "./JokesTableHeader"
 import { useOutletContext } from "react-router-dom"
+import { useState } from "react";
 
 
 function classNames(...classes) {
@@ -9,16 +10,45 @@ function classNames(...classes) {
 
 export default function JokesTable() {
 
-    const { allJokes, } = useOutletContext();
+    const { allJokes, currentDate } = useOutletContext();
 
-    console.log(allJokes)
+    const [selectedJoke, setSelectedJoke] = useState({
+        answer: "",
+        dateCreated: currentDate,
+        numberOfLikes: 1,
+        question: "",
+        username: ""
+    })
+
+
+    // Functions to update state as a particular joke is selected
+    const handleClickedSelectionOfJoke = (selected) => {
+        let newJokeSelected = {
+            answer: selected.answer,
+            dateCreated: currentDate,
+            numberOfLikes: selected.numberOfLikes,
+            question: selected.question,
+            username: selected.username
+        }
+
+        setSelectedJoke(newJokeSelected)
+    }
+
+
+    console.log(selectedJoke);
+
+
+
 
 
     return (
 
         <>
+            {/* This is the top line header of the jokes table */}
             <JokesTableHeader />
-            <div className="bg-gray-700 mx-auto max-w-7xl sm:px-6 lg:px-8  border-gray-200 rounded-md sm:mt-10">{/* Content goes here */}
+
+            {/* Here is the section where our Add new jokes button is located */}
+            <div className="bg-gray-900 mx-auto max-w-7xl sm:px-6 lg:px-8  border-gray-200 rounded-md sm:mt-10">{/* Content goes here */}
 
                 <div className="px-4 sm:px-6 lg:px-8">
                     <div className="sm:flex sm:items-center">
@@ -40,7 +70,7 @@ export default function JokesTable() {
                     <div className="mt-8 flow-root">
                         <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
                             <div className="inline-block min-w-full py-2 align-middle">
-                                <table className="min-w-full border-separate border-spacing-0">
+                                <table className="min-w-full border-separate border-spacing-0 rounded-xl">
                                     <thead>
                                         <tr>
                                             <th
@@ -75,54 +105,77 @@ export default function JokesTable() {
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        {allJokes.map((joke, personIdx) => (
-                                            <tr key={joke.jokeId}>
-                                                <td
-                                                    className={classNames(
-                                                        personIdx !== joke.length - 1 ? 'border-b border-gray-200' : '',
-                                                        'whitespace-nowrap py-4 pl-4 pr-3 text-sm text-center font-medium text-gray-200 sm:pl-6 lg:pl-8',
-                                                    )}
-                                                >
-                                                    {joke.dateCreated}
-                                                </td>
-                                                <td
-                                                    className={classNames(
-                                                        personIdx !== joke.length - 1 ? 'border-b border-gray-200' : '',
-                                                        'hidden whitespace-nowrap px-3 py-4 text-sm text-gray-200 sm:table-cell',
-                                                    )}
-                                                >
-                                                    {joke.question}
-                                                </td>
-                                                <td
-                                                    className={classNames(
-                                                        personIdx !== joke.length - 1 ? 'border-b border-gray-200' : '',
-                                                        'hidden whitespace-nowrap px-3 py-4 text-sm text-center text-gray-200 lg:table-cell',
-                                                    )}
-                                                >
-                                                    {joke.username}
-                                                </td>
-                                                <td
-                                                    className={classNames(
-                                                        personIdx !== joke.length - 1 ? 'border-b border-gray-200' : '',
-                                                        'whitespace-nowrap px-3 py-4 text-sm text-center text-gray-200',
-                                                    )}
-                                                >
-                                                    {joke.numberOfLikes}
-                                                </td>
-                                                <td
-                                                    className={classNames(
-                                                        personIdx !== joke.length - 1 ? 'border-b border-gray-200' : '',
-                                                        'relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-8 lg:pr-8',
-                                                    )}
-                                                >
-                                                    <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                        Edit<span className="sr-only">, {joke.jokeId}</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
+
+                                    {allJokes.length < 1 ?
+                                        <div>
+                                            <h1 className="text-gray-100">Loading the jokes from our database, </h1>
+                                            <h1 className="text-gray-100">this could take up to 10 seconds </h1>
+
+                                        </div>
+
+                                        :
+
+
+
+
+                                        <tbody>
+                                            {allJokes.map((joke, personIdx) => (
+                                                <tr key={joke.jokeId}>
+                                                    <td
+                                                        className={classNames(
+                                                            personIdx !== joke.length - 1 ? 'border-b border-gray-700' : '',
+                                                            'whitespace-nowrap py-4 pl-4 pr-3 text-sm text-center font-medium text-gray-200 sm:pl-6 lg:pl-8',
+                                                        )}
+                                                    >
+                                                        {joke.dateCreated}
+                                                    </td>
+                                                    <td
+                                                        className={classNames(
+                                                            personIdx !== joke.length - 1 ? 'border-b border-gray-700' : '',
+                                                            'hidden whitespace-nowrap px-3 py-4 text-sm text-gray-200 sm:table-cell',
+                                                        )}
+                                                    >
+                                                        {joke.question}
+                                                    </td>
+                                                    <td
+                                                        className={classNames(
+                                                            personIdx !== joke.length - 1 ? 'border-b border-gray-700' : '',
+                                                            'hidden whitespace-nowrap px-3 py-4 text-sm text-center text-gray-200 lg:table-cell',
+                                                        )}
+                                                    >
+                                                        {joke.username}
+                                                    </td>
+                                                    <td
+                                                        className={classNames(
+                                                            personIdx !== joke.length - 1 ? 'border-b border-gray-700' : '',
+                                                            'whitespace-nowrap px-3 py-4 text-sm text-center text-gray-200',
+                                                        )}
+                                                    >
+                                                        {joke.numberOfLikes}
+                                                    </td>
+                                                    <td
+                                                        className={classNames(
+                                                            personIdx !== joke.length - 1 ? 'border-b border-gray-700' : '',
+                                                            'relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-8 lg:pr-8',
+                                                        )}
+                                                    >
+                                                        <button
+
+                                                            onClick={() => handleClickedSelectionOfJoke(joke)}
+                                                            className="text-indigo-600 hover:text-indigo-900">
+                                                            View Punch Line<span className="sr-only">, {joke.jokeId}</span>
+                                                        </button>
+                                                        {/* <button
+                                                            type="button"
+                                                            className="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                                        >
+                                                            Delete
+                                                        </button> */}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    }
                                 </table>
                             </div>
                         </div>
