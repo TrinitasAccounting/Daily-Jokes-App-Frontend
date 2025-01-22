@@ -1,20 +1,18 @@
 
 import { useOutletContext } from "react-router-dom";
+import JokesTable from "./JokesTable";
 
 
 function JokesPage() {
 
     const { allJokes } = useOutletContext();
 
-    console.log(allJokes);
 
 
     return (
-        <>
-            {allJokes.map((joke) => {
-                return (<h2>{joke.question}</h2>)
-            })}
-        </>
+        <div className="h-screen bg-gray-900">
+            <JokesTable />
+        </div>
     )
 }
 

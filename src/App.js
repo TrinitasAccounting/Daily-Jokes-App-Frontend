@@ -34,6 +34,34 @@ function App() {
       })
   }, [])
 
+  // POST fetch for jokes (When I have authentication turned off, I have this ability hidden on the frontend)
+  function addNewJoke(newJoke) {
+    fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newJoke)
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then(newJokeData => {
+            setAllJokes([...allJokes, newJokeData])
+          })
+        }
+        else if (res.status === 400) {
+          res.json().then(errorData => alert(`Error: ${errorData.error}`))
+        }
+        else if (res.status === 401) {
+          res.json().then(errorData => alert(`Error: ${errorData.error}`))
+        }
+        else {
+          res.json().then(() => alert("Error: Something went wrong"))
+        }
+      })
+  }
+
 
 
 
