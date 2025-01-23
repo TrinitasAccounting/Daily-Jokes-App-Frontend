@@ -4,7 +4,7 @@ import JokesTable from "./JokesTable";
 import JokesStackedListTable from "./JokesDesignComponents/JokesStackedListTable";
 import JokesStackedListHeader from "./JokesDesignComponents/JokesStackedListHeader";
 import TopUsersRankedHeader from "./JokesDesignComponents/TopUsersRankedHeader";
-import TopUsersRankedList from "./TopUsersRankedList";
+import TopUsersRankedList from "./JokesDesignComponents/TopUsersRankedList";
 
 
 function JokesPage() {

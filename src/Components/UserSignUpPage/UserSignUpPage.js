@@ -23,8 +23,6 @@ export default function UserSignUpPage() {
         setAddUserForm({ ...addUserForm, [event.target.name]: event.target.value })
     };
 
-    console.log(addUserForm);
-
     function handleSubmissionOfAddNewUser(event) {
         event.preventDefault();
         addNewUser(addUserForm)

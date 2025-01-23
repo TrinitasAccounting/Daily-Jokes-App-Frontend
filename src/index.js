@@ -10,6 +10,7 @@ import Navbar from './Components/Navbar';
 import AboutPage from './Components/AboutPage';
 import JokesPage from './Components/Jokes Page/JokesPage';
 import UserSignUpPage from './Components/UserSignUpPage/UserSignUpPage';
+import DonationsMainPage from './Components/DonationsPage/DonationsMainPage';
 
 
 
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <UserSignUpPage />
+      }, {
+        path: '/donations',
+        element: <DonationsMainPage />
       },
     ]
   }

@@ -3,12 +3,16 @@
 import AbstractMobilePhone from '../Images/AbstractMobilePhone.png';
 import MobilePhoneScreenshot from '../Images/MobilePhoneScreenshot.png';
 
+import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/solid'
+
 import { useOutletContext } from 'react-router-dom';
 
 
 
 
-
+// For the bottom page links section
 const footerNavigation = {
     solutions: [
         { name: 'Hosting', href: '#' },
@@ -99,6 +103,56 @@ const footerNavigation = {
     ],
 }
 
+// For the Charities section
+const cards = [
+    {
+        name: 'Orphans in Need, USA',
+        description: 'This charity is dedicated to providing long-term and consistent support to orphan children and their families in need.',
+        link: "https://oinusa.org/about-us/"
+    },
+    {
+        name: 'Samaritan\'s Purse',
+        description: 'This is a nondenomination christina orgnanization providing spiritual and physical aid to hurting people around the world.',
+        link: "https://www.samaritanspurse.org/our-ministry/christian-charity/"
+    },
+    {
+        name: 'Our Fatherless Foundation',
+        description: 'This charity helps support single family households without a father present. Helping to guide, teach, and provide to the children as they grow into young men and women.',
+        link: "https://www.ourfatherless.org/"
+    },
+]
+
+
+// Frequently Asked questions section
+const faqs = [
+    {
+        question: "Are these jokes clean or safe for kids?",
+        answer:
+            "Absolutely, this is one of our core principles. We are a christian organization and we vet each joke to make sure it passes our standards of: no curse words, no provactive or rude language, no sexual undertones, etc.",
+    },
+    {
+        question: "Are you giving out my phone number to other companies or spam?",
+        answer:
+            "Definitely not! We hate this just as much as you do and do not sell or give any user information to outside sources. We are solely in house and keep everything confidential!",
+    },
+    {
+        question: "Is there a trial period I can do?",
+        answer:
+            "Unfortunately right now there is not. We will be adding a link where you can see examples of the jokes and what the daily message would look like. But for now, all users must sign up directly. Remember, a majority of your monthly fee goes to help those in need, so you are giving a smile just as you are receiving a smile.",
+    },
+    {
+        question: "Do you store my credit card information?",
+        answer:
+            "We happily do not, we use Stripe payment solution to handle our transactions. All we keep is your information as a user and then we let Stripe's security maintain your payment information. So you don't have to worry about any hacks at all.",
+    },
+    {
+        question: "Will I ever see if our donations make an actual difference?",
+        answer:
+            "Great question, so first and foremost we are very transparent as a company. We post on the donations page of our website, the exact amount and to whom the donations go to each month. So all of our users can rest assured their money is going to great causes. In the future we are excited about partnering with multiple charities and allowing them to send pictures, videos, or post to our users each month. Showing to the users what their donations are doing directly to help the children and people in need. So yes as soon as we can, you will be able to draw an even bigger smile as you see exactly what your capital is doing to help others.",
+    },
+
+]
+
 
 
 
@@ -106,8 +160,6 @@ const footerNavigation = {
 
 
 export default function HomePage() {
-
-    const { x } = useOutletContext();
 
 
 
@@ -203,7 +255,132 @@ export default function HomePage() {
                 </div>
 
 
+                {/* Charities Section */}
+                <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+                    <img
+                        alt=""
+                        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+                        className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
+                    />
+                    <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+                        <div
+                            style={{
+                                clipPath:
+                                    'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                            }}
+                            className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+                        />
+                    </div>
+                    <div className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu">
+                        <div
+                            style={{
+                                clipPath:
+                                    'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                            }}
+                            className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+                        />
+                    </div>
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div className="mx-auto max-w-2xl sm:max-w-6xl lg:mx-0">
+                            <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Charities and Donations</h2>
+                            <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
+                                We want to make a difference in this world and we wanted to provide an easy way for others to do this as well. How do we do this, well when we started the company we vowed to give away 51% or more of our total revenue each month. And we happily do so month after month, allowing our users to know their $4.99 monthly subscription fee is going to a great cause. Below you will find some of our partnering charities that we donate too. In a future update, we will give each user the option to pick the charity they would like to donate too. As our goal is to not only entertain our users daily with jokes and memes, but to help make a lasting difference in this world.
+                            </p>
+                        </div>
+                        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+                            {cards.map((card) => (
+                                <div key={card.name} className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10">
+                                    {/* <card.icon aria-hidden="true" className="h-7 w-5 flex-none text-indigo-400" /> */}
+                                    <div className="text-base/7">
+                                        <h3 className="font-semibold text-xl text-yellow-200">{card.name}</h3>
+                                        <p className="mt-2 text-gray-300">{card.description}</p>
+                                        <a href={card.link}
+                                            className='text-indigo-400'>
+                                            Link to Website
+                                        </a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
+
+                {/* Reviews Section */}
+                <section className="bg-gray-900 py-24 sm:py-16">
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                            <div className="flex flex-col pb-10 sm:pb-16 lg:pb-0 lg:pr-8 xl:pr-20">
+                                {/* <img alt="" src="https://tailwindui.com/plus/img/logos/tuple-logo-white.svg" className="h-12 self-start" /> */}
+                                <figure className="mt-10 flex flex-auto flex-col justify-between">
+                                    <blockquote className="text-lg/8 text-white">
+                                        <p>
+                                            “I have always sent dad jokes to my family and cringing laugh at everyone of them. But now I get them to my phone every morning, putting a smile on my face. But the real joy for me is knowing such a simple donation from me ends up making a huge difference for the charities and people this app supports”
+                                        </p>
+                                    </blockquote>
+                                    <figcaption className="mt-10 flex items-center gap-x-6">
+
+                                        <span className="inline-flex size-10 items-center justify-center rounded-full bg-gray-500">
+                                            <span className="font-medium text-white">CM</span>
+                                        </span>
+                                        <div className="text-base">
+                                            <div className="font-semibold text-white">Cassidy M.</div>
+                                            <div className="mt-1 text-gray-400">Dad Joke Enthusiast</div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div className="flex flex-col border-t border-white/10 pt-10 sm:pt-16 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
+
+                                <figure className="mt-10 flex flex-auto flex-col justify-between">
+                                    <blockquote className="text-lg/8 text-white">
+                                        <p>
+                                            “I must admit, I only signed up to begin with because I wanted to be a little part in the giving to charities. But I quickly realized I was getting a good laugh or smile everyday as well, you would be shocked how funny dad jokes can truly be. Great start to my morning everyday!”
+                                        </p>
+                                    </blockquote>
+                                    <figcaption className="mt-10 flex items-center gap-x-6">
+
+                                        <span className="inline-flex size-10 items-center justify-center rounded-full bg-gray-500">
+                                            <span className="font-medium text-white">AR</span>
+                                        </span>
+                                        <div className="text-base">
+                                            <div className="font-semibold text-white">Andy R.</div>
+                                            <div className="mt-1 text-gray-400">Part-time Comedian</div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                {/* FAQ section */}
+                <div className="mx-auto mt-32 pb-20 max-w-7xl px-6 sm:mt-40 lg:px-8">
+                    <div className="mx-auto max-w-4xl divide-y divide-gray-300/10">
+                        <h2 className="text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">
+                            Frequently asked questions
+                        </h2>
+                        <dl className="mt-10 space-y-6 divide-y divide-gray-300/10">
+                            {faqs.map((faq) => (
+                                <Disclosure key={faq.question} as="div" className="pt-6">
+                                    <dt>
+                                        <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-100">
+                                            <span className="text-base/7 font-semibold">{faq.question}</span>
+                                            <span className="ml-6 flex h-7 items-center">
+                                                <PlusSmallIcon aria-hidden="true" className="size-6 group-data-[open]:hidden" />
+                                                <MinusSmallIcon aria-hidden="true" className="size-6 group-[&:not([data-open])]:hidden" />
+                                            </span>
+                                        </DisclosureButton>
+                                    </dt>
+                                    <DisclosurePanel as="dd" className="mt-2 pr-12">
+                                        <p className="text-base/7 text-gray-100">{faq.answer}</p>
+                                    </DisclosurePanel>
+                                </Disclosure>
+                            ))}
+                        </dl>
+                    </div>
+                </div>
 
 
 
@@ -225,6 +402,6 @@ export default function HomePage() {
                     </p>
                 </div>
             </footer>
-        </div>
+        </div >
     )
 }
