@@ -1,6 +1,7 @@
 
 
 import AbstractMobilePhone from '../Images/AbstractMobilePhone.png';
+import MobilePhoneScreenshot from '../Images/MobilePhoneScreenshot.png';
 
 import { useOutletContext } from 'react-router-dom';
 
@@ -160,7 +161,7 @@ export default function HomePage() {
                             /> */}
                             <div className="mt-24 sm:mt-32 lg:mt-16">
                                 <a href="/jokes" className="inline-flex space-x-6">
-                                    <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm/6 font-semibold text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+                                    <span className="rounded-full bg-indigo-300/10 px-3 py-1 text-sm/6 font-semibold text-amber-300 ring-1 ring-inset ring-indigo-500/20">
                                         Browse Last Year's Jokes
                                     </span>
                                     {/* <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-300">
@@ -178,7 +179,7 @@ export default function HomePage() {
                             <div className="mt-10 flex items-center gap-x-6">
                                 <a
                                     href="#"
-                                    className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                                    className="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-gray-950 shadow-sm hover:bg-yellow-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                                 >
                                     Get started
                                 </a>
@@ -191,10 +192,10 @@ export default function HomePage() {
                             <div className="shadow-xl shadow-gray-200 max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
                                 <img
                                     alt="App screenshot"
-                                    src={AbstractMobilePhone}
+                                    src={MobilePhoneScreenshot}
                                     width={2432}
                                     height={1442}
-                                    className=" w-[24rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 opacity-25"
+                                    className=" w-[20rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 "
                                 />
                             </div>
                         </div>

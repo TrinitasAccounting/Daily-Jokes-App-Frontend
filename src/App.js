@@ -100,6 +100,41 @@ function App() {
       })
   }, [])
 
+  console.log(allUsers);
+
+  // POST fetch for new Users
+  function addNewUser(newUser) {
+    fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/users', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then(newUserData => {
+            setAllUsers([...allUsers, newUserData])
+            alert('Successfully subscribed, you will receive a text confirming your phone number')
+          })
+        }
+        else if (res.status === 400) {
+          res.json().then(errorData => alert(`Error: ${errorData.error}`))
+        }
+        else if (res.status === 401) {
+          res.json().then(errorData => alert(`Error: ${errorData.error}`))
+        }
+        else {
+          res.json().then(() => alert("Error: Something went wrong"))
+        }
+      })
+  }
+
+
+
+
+
 
 
 
@@ -113,6 +148,8 @@ function App() {
         setOpenAddNewJokePopUp,
         addNewJoke,
         deleteJoke,
+        allUsers,
+        addNewUser,
         currentDate
       }} />
     </div>

@@ -9,6 +9,7 @@ import HomePage from './Components/HomePage';
 import Navbar from './Components/Navbar';
 import AboutPage from './Components/AboutPage';
 import JokesPage from './Components/Jokes Page/JokesPage';
+import UserSignUpPage from './Components/UserSignUpPage/UserSignUpPage';
 
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutPage />
+      },
+      {
+        path: '/signup',
+        element: <UserSignUpPage />
       },
     ]
   }
