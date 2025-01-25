@@ -2,6 +2,8 @@
 
 import AbstractMobilePhone from '../Images/AbstractMobilePhone.png';
 import MobilePhoneScreenshot from '../Images/MobilePhoneScreenshot.png';
+import RemovedBackgroundMobilePhone from '../Images/RemovedBackgroundMobilePhone.png';
+import MobileCombinedNoBackground from '../Images/MobileCombinedNoBackground.png';
 
 import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -230,7 +232,7 @@ export default function HomePage() {
                             </p>
                             <div className="mt-10 flex items-center gap-x-6">
                                 <a
-                                    href="#"
+                                    href="/signup"
                                     className="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-gray-950 shadow-sm hover:bg-yellow-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                                 >
                                     Get started
@@ -241,14 +243,15 @@ export default function HomePage() {
                             </div>
                         </div>
                         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-                            <div className="shadow-xl shadow-gray-200 max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+                            <div className="shadow-xl shadow-gray-900 max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
                                 <img
                                     alt="App screenshot"
-                                    src={MobilePhoneScreenshot}
+                                    src={MobileCombinedNoBackground}
                                     width={2432}
                                     height={1442}
-                                    className=" w-[20rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 "
+                                    className=" w-[38rem] rounded-[40px]  "
                                 />
+
                             </div>
                         </div>
                     </div>
@@ -315,7 +318,7 @@ export default function HomePage() {
                                 <figure className="mt-10 flex flex-auto flex-col justify-between">
                                     <blockquote className="text-lg/8 text-white">
                                         <p>
-                                            “I have always sent dad jokes to my family and cringing laugh at everyone of them. But now I get them to my phone every morning, putting a smile on my face. But the real joy for me is knowing such a simple donation from me ends up making a huge difference for the charities and people this app supports”
+                                            “I have always sent dad jokes to my family and with a cring laugh at everyone of them. But now I get them to my phone every morning, putting a smile on my face. But the real joy for me is knowing such a simple donation from me ends up making a huge difference for the charities and people this app supports”
                                         </p>
                                     </blockquote>
                                     <figcaption className="mt-10 flex items-center gap-x-6">

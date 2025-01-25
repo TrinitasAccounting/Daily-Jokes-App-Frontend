@@ -84,7 +84,7 @@ export default function TopUsersRankedList() {
                     <h1>Coming Soon</h1>
                 </div>
             </div>
-            <div className="opacity-25">
+            <div className="opacity-25 h-screen">
 
                 <ul role="list" className="divide-y divide-gray-800">
                     {allUsers.map((person) => (
