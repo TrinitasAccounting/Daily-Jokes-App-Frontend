@@ -7,6 +7,7 @@ import { Oval } from 'react-loading-icons';
 
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import ViewPunchLinePopUp from './ViewPunchLinePopUp';
 
 
 
@@ -17,7 +18,7 @@ function classNames(...classes) {
 export default function JokesStackedListTable() {
 
 
-    const { allJokes, currentDate, deleteJoke, updateJokePut } = useOutletContext();
+    const { allJokes, currentDate, deleteJoke, updateJokePut, openViewPunchLinePopUp, setOpenViewPunchLinePopUp } = useOutletContext();
     const [selectedJoke, setSelectedJoke] = useState({
         jokeId: 0,
         answer: "",
@@ -28,7 +29,8 @@ export default function JokesStackedListTable() {
     })
 
 
-    // Functions to update state as a particular joke Edit or Delete is selected
+
+    // Functions to update state as a particular joke Edit, Like, or Delete is selected
     const handleClickedSelectionOfJoke = (selected) => {
         let newJokeSelected = {
             jokeId: selected.jokeId,
@@ -42,7 +44,6 @@ export default function JokesStackedListTable() {
         setSelectedJoke(newJokeSelected)
     }
 
-    console.log(selectedJoke);
 
     // Updating the joke when Like button is clicked______
     const [likes, setLikes] = useState([])
@@ -61,47 +62,7 @@ export default function JokesStackedListTable() {
 
 
 
-
-    // When like button clicked, function that adds or removes a like from the selected Joke
-    // function handleClickOfLikeButtonAddOrRemoveLike(fullJoke, id) {
-    //     if (likes.includes(fullJoke.jokeId)) {
-    //         // let newLikeNumber = selectedJoke.numberOfLikes - 1
-    //         let newJokeObject = { ...fullJoke }
-    //         newJokeObject.numberOfLikes = fullJoke.numberOfLikes - 1
-    //         // setSelectedJoke(newJokeObject)
-    //         console.log(newJokeObject.numberOfLikes)
-    //     }
-    //     else {
-    //         let newJokeObject = { ...fullJoke }
-    //         newJokeObject.numberOfLikes = fullJoke.numberOfLikes + 1
-
-    //         // setSelectedJoke(newJokeObject)
-    //         console.log(newJokeObject.numberOfLikes)
-    //     }
-    // }
-
-    // function handleClickOfLikeButtonAddOrRemoveLike(fullJoke) {
-    //     let newNumberOfLikes = 0;
-    //     if (likes.includes(fullJoke.jokeId)) {
-    //         newNumberOfLikes = fullJoke.numberOfLikes - 1
-    //     }
-    //     else {
-    //         newNumberOfLikes = fullJoke.numberOfLikes + 1
-    //     }
-    //     setSelectedJoke({
-    //         jokeId: fullJoke.jokeId,
-    //         answer: fullJoke.answer,
-    //         dateCreated: fullJoke.dateCreated,
-    //         numberOfLikes: newNumberOfLikes,
-    //         question: fullJoke.question,
-    //         username: fullJoke.username
-    //     })
-    // }
-
-
-
-
-    // Function that will patch with the updated number of likes
+    // Function that will increment the likes and patch with the updated number of likes and a brand new object
     function putAndUpdateLikesNumber(fullJoke) {
         let newNumberOfLikes = 0;
         if (likes.includes(fullJoke.jokeId)) {
@@ -121,9 +82,6 @@ export default function JokesStackedListTable() {
         }
 
         updateJokePut(newJokeObject);
-
-
-
     }
 
 
@@ -137,6 +95,8 @@ export default function JokesStackedListTable() {
 
         <div className=" overflow-scroll overflow-x-hidden h-screen ">
             {allJokes.length < 1 ?
+
+                // Loading screen component for when the data hasn't loaded yet_____(Expand the Div)
                 <div className="grid grid-cols-1 ">
                     <div>
                         <h1 className="text-gray-100 flex items-center justify-center col-col-span-1  my-12"><Oval stroke="#fff" width={40} height={40} /></h1>
@@ -153,6 +113,8 @@ export default function JokesStackedListTable() {
                 </div>
 
                 :
+
+                // THis is the jokes list mapped through and output in list format
                 <div className=" ">
 
                     <ul role="list" className=" divide-y divide-gray-100 ">
@@ -173,13 +135,18 @@ export default function JokesStackedListTable() {
                                         <p className="truncate"> {joke.username}</p>
                                     </div>
                                 </div>
+
+                                {/* Punch Line Pop Up section */}
                                 <div className="flex flex-none items-center gap-x-4">
-                                    <a
-                                        // href={project.href}
+                                    <button
+                                        onClick={() => {
+                                            setOpenViewPunchLinePopUp(!openViewPunchLinePopUp)
+                                            handleClickedSelectionOfJoke(joke)
+                                        }}
                                         className="hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block"
                                     >
                                         View Punch Line<span className="sr-only">, {joke.jokeId}</span>
-                                    </a>
+                                    </button>
 
 
 
@@ -193,8 +160,6 @@ export default function JokesStackedListTable() {
                                                 () => {
                                                     handleClickedSelectionOfJoke(joke)
                                                     addingRemovingJokeIdToLikeList(joke.jokeId)
-                                                    // handleClickOfLikeButtonAddOrRemoveLike(joke)
-                                                    // updateJokePut(selectedJoke)
                                                     putAndUpdateLikesNumber(joke)
                                                 }
                                             }
@@ -210,16 +175,12 @@ export default function JokesStackedListTable() {
                                                 () => {
                                                     handleClickedSelectionOfJoke(joke)
                                                     addingRemovingJokeIdToLikeList(joke.jokeId)
-                                                    // handleClickOfLikeButtonAddOrRemoveLike(joke)
-                                                    // updateJokePut(selectedJoke)
                                                     putAndUpdateLikesNumber(joke)
-
                                                 }
                                             }
                                         >
                                             🤍Like
                                         </button>
-
                                     }
 
                                     <span className='text-gray-400'>{joke.numberOfLikes}</span>
@@ -228,22 +189,28 @@ export default function JokesStackedListTable() {
 
                                     {/* This is the small 3 dots dropdown by the view punch line __________________________ */}
                                     <Menu as="div" className="relative flex-none">
-                                        <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
+                                        {/* Uncomment the below out to show the menu button again, this will allow us to delete from the database. 
+                                        Once I have set up user authentication and authorization then we can control this by user type
+                                        ________________________________________ */}
+                                        {/* <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
                                             <span className="sr-only">Open options</span>
                                             <EllipsisVerticalIcon aria-hidden="true" className="size-5" />
-                                        </MenuButton>
+                                        </MenuButton> */}
                                         <MenuItems
                                             transition
                                             className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                                         >
-                                            <MenuItem>
+                                            {/* <MenuItem>
                                                 <a
                                                     onClick={() => handleClickedSelectionOfJoke(joke)}
                                                     className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
                                                 >
                                                     Edit<span className="sr-only">, {joke.jokeId}</span>
                                                 </a>
-                                            </MenuItem>
+                                            </MenuItem> */}
+
+
+                                            {/* Delete button on the drop down menu */}
                                             <MenuItem>
                                                 <button
                                                     onClick={() => deleteJoke(joke.jokeId)}
@@ -255,9 +222,20 @@ export default function JokesStackedListTable() {
                                         </MenuItems>
                                     </Menu>
                                 </div>
+
                             </li>
                         ))}
                     </ul>
+
+                    {/* We are showing the view Punch line when the button is clicked, with this div showing in the foreground */}
+                    {openViewPunchLinePopUp ?
+                        <div>
+                            <ViewPunchLinePopUp selectedJoke={selectedJoke} />
+                        </div>
+                        :
+                        <>
+                        </>
+                    }
                 </div>
             }
         </div>

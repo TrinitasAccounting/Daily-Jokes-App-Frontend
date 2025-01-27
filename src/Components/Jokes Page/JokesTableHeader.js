@@ -30,11 +30,11 @@ export default function JokesTableHeader({ }) {
 
             {/* Button for adding a new joke, using grid layout for Div to position it____________________________ */}
             <div className='grid grid-cols-5 gap-4'>
-                <div class="p-4 "></div>
-                <div class=" p-4 "></div>
-                <div class=" p-4 "></div>
-                <div class=" p-4"></div>
-                <div class=" p-4">
+                <div className="p-4 "></div>
+                <div className=" p-4 "></div>
+                <div className=" p-4 "></div>
+                <div className=" p-4"></div>
+                <div className=" p-4">
                     <button
                         type="button"
                         onClick={() => setOpenAddNewJokePopUp(!openAddNewJokePopUp)}

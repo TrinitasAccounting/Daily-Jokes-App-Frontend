@@ -22,6 +22,7 @@ function App() {
   const [allJokes, setAllJokes] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [openAddNewJokePopUp, setOpenAddNewJokePopUp] = useState(false)
+  const [openViewPunchLinePopUp, setOpenViewPunchLinePopUp] = useState(false);
   let currentDate = moment().format("MM-DD-YYYY")
 
   let x = 47;
@@ -198,6 +199,8 @@ function App() {
         addNewJoke,
         deleteJoke,
         updateJokePut,
+        openViewPunchLinePopUp,
+        setOpenViewPunchLinePopUp,
         allUsers,
         addNewUser,
         currentDate

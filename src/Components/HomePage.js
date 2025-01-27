@@ -318,7 +318,7 @@ export default function HomePage() {
                                 <figure className="mt-10 flex flex-auto flex-col justify-between">
                                     <blockquote className="text-lg/8 text-white">
                                         <p>
-                                            “I have always sent dad jokes to my family and with a cring laugh at everyone of them. But now I get them to my phone every morning, putting a smile on my face. But the real joy for me is knowing such a simple donation from me ends up making a huge difference for the charities and people this app supports”
+                                            “I have always sent dad jokes to my family and with a cringe, laugh at every one of them. Now, I get a joke texted to my phone every morning, putting a smile on my face! The real joy is knowing, my simple donation ends up making a huge difference for the charities and people this app supports.”
                                         </p>
                                     </blockquote>
                                     <figcaption className="mt-10 flex items-center gap-x-6">
@@ -338,7 +338,7 @@ export default function HomePage() {
                                 <figure className="mt-10 flex flex-auto flex-col justify-between">
                                     <blockquote className="text-lg/8 text-white">
                                         <p>
-                                            “I must admit, I only signed up to begin with because I wanted to be a little part in the giving to charities. But I quickly realized I was getting a good laugh or smile everyday as well, you would be shocked how funny dad jokes can truly be. Great start to my morning everyday!”
+                                            “I must admit, I only signed up to begin with because I wanted to be a little part in the giving to charities. But I quickly realized I was getting a good laugh or smile everyday as well. You would be shocked how funny dad jokes can truly be. Great start to my morning everyday!”
                                         </p>
                                     </blockquote>
                                     <figcaption className="mt-10 flex items-center gap-x-6">

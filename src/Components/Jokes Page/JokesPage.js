@@ -19,8 +19,8 @@ function JokesPage() {
             <div className="">
 
                 <div className="bg-gray-900 flex sm:h-20"></div>
-                <div class="flex mb-0">
-                    <div class="w-2/3 bg-gray-900 h-full">
+                <div className="flex mb-0">
+                    <div className="w-2/3 bg-gray-900 h-full">
 
                         <div className="">
                             <JokesStackedListHeader />
@@ -29,7 +29,7 @@ function JokesPage() {
                             <JokesStackedListTable />
                         </div>
                     </div>
-                    <div class="w-1/3 bg-gray-400 h-screen">
+                    <div className="w-1/3 bg-gray-400 h-screen">
                         <div className="flex-1 bg-gray-800 p-4">
                             <div className="px-2">
                                 <TopUsersRankedHeader />
