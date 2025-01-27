@@ -17,8 +17,9 @@ function classNames(...classes) {
 export default function JokesStackedListTable() {
 
 
-    const { allJokes, currentDate, deleteJoke } = useOutletContext();
+    const { allJokes, currentDate, deleteJoke, updateJokePut } = useOutletContext();
     const [selectedJoke, setSelectedJoke] = useState({
+        jokeId: 0,
         answer: "",
         dateCreated: currentDate,
         numberOfLikes: 1,
@@ -30,8 +31,9 @@ export default function JokesStackedListTable() {
     // Functions to update state as a particular joke Edit or Delete is selected
     const handleClickedSelectionOfJoke = (selected) => {
         let newJokeSelected = {
+            jokeId: selected.jokeId,
             answer: selected.answer,
-            dateCreated: currentDate,
+            dateCreated: selected.dateCreated,
             numberOfLikes: selected.numberOfLikes,
             question: selected.question,
             username: selected.username
@@ -39,6 +41,92 @@ export default function JokesStackedListTable() {
 
         setSelectedJoke(newJokeSelected)
     }
+
+    console.log(selectedJoke);
+
+    // Updating the joke when Like button is clicked______
+    const [likes, setLikes] = useState([])
+
+    function addingRemovingJokeIdToLikeList(id) {
+        if (likes.includes(id)) {
+            setLikes(likes.filter((jokeId) => {
+                return (jokeId !== id)
+            }))
+        }
+        else {
+            setLikes(likes.concat(id))
+        }
+    }
+
+
+
+
+
+    // When like button clicked, function that adds or removes a like from the selected Joke
+    // function handleClickOfLikeButtonAddOrRemoveLike(fullJoke, id) {
+    //     if (likes.includes(fullJoke.jokeId)) {
+    //         // let newLikeNumber = selectedJoke.numberOfLikes - 1
+    //         let newJokeObject = { ...fullJoke }
+    //         newJokeObject.numberOfLikes = fullJoke.numberOfLikes - 1
+    //         // setSelectedJoke(newJokeObject)
+    //         console.log(newJokeObject.numberOfLikes)
+    //     }
+    //     else {
+    //         let newJokeObject = { ...fullJoke }
+    //         newJokeObject.numberOfLikes = fullJoke.numberOfLikes + 1
+
+    //         // setSelectedJoke(newJokeObject)
+    //         console.log(newJokeObject.numberOfLikes)
+    //     }
+    // }
+
+    // function handleClickOfLikeButtonAddOrRemoveLike(fullJoke) {
+    //     let newNumberOfLikes = 0;
+    //     if (likes.includes(fullJoke.jokeId)) {
+    //         newNumberOfLikes = fullJoke.numberOfLikes - 1
+    //     }
+    //     else {
+    //         newNumberOfLikes = fullJoke.numberOfLikes + 1
+    //     }
+    //     setSelectedJoke({
+    //         jokeId: fullJoke.jokeId,
+    //         answer: fullJoke.answer,
+    //         dateCreated: fullJoke.dateCreated,
+    //         numberOfLikes: newNumberOfLikes,
+    //         question: fullJoke.question,
+    //         username: fullJoke.username
+    //     })
+    // }
+
+
+
+
+    // Function that will patch with the updated number of likes
+    function putAndUpdateLikesNumber(fullJoke) {
+        let newNumberOfLikes = 0;
+        if (likes.includes(fullJoke.jokeId)) {
+            newNumberOfLikes = fullJoke.numberOfLikes - 1
+        }
+        else {
+            newNumberOfLikes = fullJoke.numberOfLikes + 1
+        }
+
+        let newJokeObject = {
+            jokeId: fullJoke.jokeId,
+            answer: fullJoke.answer,
+            dateCreated: fullJoke.dateCreated,
+            numberOfLikes: newNumberOfLikes,
+            question: fullJoke.question,
+            username: fullJoke.username
+        }
+
+        updateJokePut(newJokeObject);
+
+
+
+    }
+
+
 
 
 
@@ -93,9 +181,50 @@ export default function JokesStackedListTable() {
                                         View Punch Line<span className="sr-only">, {joke.jokeId}</span>
                                     </a>
 
+
+
                                     {/* Like and count feature________________________ */}
-                                    <span>❤️🤍</span>
+                                    {/* 🤍❤️ */}
+                                    {/* This is two separate buttons and not just class filtering because the symbol wont let me change its background color */}
+                                    {likes.includes(joke.jokeId) ?
+                                        <button
+                                            className="bg-red-400 px-1 rounded-md"
+                                            onClick={
+                                                () => {
+                                                    handleClickedSelectionOfJoke(joke)
+                                                    addingRemovingJokeIdToLikeList(joke.jokeId)
+                                                    // handleClickOfLikeButtonAddOrRemoveLike(joke)
+                                                    // updateJokePut(selectedJoke)
+                                                    putAndUpdateLikesNumber(joke)
+                                                }
+                                            }
+                                        >
+                                            ❤️Like
+                                        </button>
+
+                                        :
+
+                                        <button
+                                            className="bg-yellow-50 px-1 rounded-md"
+                                            onClick={
+                                                () => {
+                                                    handleClickedSelectionOfJoke(joke)
+                                                    addingRemovingJokeIdToLikeList(joke.jokeId)
+                                                    // handleClickOfLikeButtonAddOrRemoveLike(joke)
+                                                    // updateJokePut(selectedJoke)
+                                                    putAndUpdateLikesNumber(joke)
+
+                                                }
+                                            }
+                                        >
+                                            🤍Like
+                                        </button>
+
+                                    }
+
                                     <span className='text-gray-400'>{joke.numberOfLikes}</span>
+
+
 
                                     {/* This is the small 3 dots dropdown by the view punch line __________________________ */}
                                     <Menu as="div" className="relative flex-none">
@@ -109,7 +238,7 @@ export default function JokesStackedListTable() {
                                         >
                                             <MenuItem>
                                                 <a
-
+                                                    onClick={() => handleClickedSelectionOfJoke(joke)}
                                                     className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
                                                 >
                                                     Edit<span className="sr-only">, {joke.jokeId}</span>

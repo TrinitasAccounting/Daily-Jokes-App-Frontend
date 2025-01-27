@@ -7,16 +7,17 @@ import { Outlet, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import './App.css';
-import HomePage from './Components/HomePage';
+// import HomePage from './Components/HomePage';
 import Navbar from "./Components/Navbar";
-import AboutPage from './Components/AboutPage';
-import NavTest from "./Components/NavTest";
+// import AboutPage from './Components/AboutPage';
+// import NavTest from "./Components/NavTest";
 
 
 
 
 
 function App() {
+
 
   const [allJokes, setAllJokes] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
@@ -34,8 +35,27 @@ function App() {
         if (res.ok) {
           res.json().then(data => setAllJokes(data))
         }
+        else {
+          alert("Error loading, please refresh the page")
+        }
       })
   }, [])
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes');
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not Ok, please refresh the page');
+  //       }
+  //       const jokeData = await response.json();
+  //       setAllJokes(jokeData)
+  //     }
+  //     catch (err) {
+  //       setError(err)
+  //     }
+  //   }
+  // }, [])
 
   // POST fetch for jokes (When I have authentication turned off, I have this ability hidden on the frontend)
   function addNewJoke(newJoke) {
@@ -83,6 +103,35 @@ function App() {
   }
 
 
+  // PUT fetch to update a joke on the backend (server side)
+  function updateJokePut(updatedJokeInfo) {
+    fetch(`https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes/${updatedJokeInfo.jokeId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedJokeInfo)
+    })
+
+    handleUpdateOfJokesOnFrontEnd(updatedJokeInfo)
+
+  }
+
+  // Handling the updating of jokes on the frontend (client side)
+  // So that the PUT fetch will rerender to the frontend correctly so the user will see the like value update before refreshing
+  function handleUpdateOfJokesOnFrontEnd(updatedJoke) {
+    const updatedJokesList = allJokes.map(joke => {
+      if (joke.jokeId === updatedJoke.jokeId) {
+        return updatedJoke
+      }
+      else {
+        return joke
+      }
+    })
+    setAllJokes(updatedJokesList);
+  }
+
+
 
 
 
@@ -100,7 +149,7 @@ function App() {
       })
   }, [])
 
-  console.log(allUsers);
+
 
   // POST fetch for new Users
   function addNewUser(newUser) {
@@ -148,6 +197,7 @@ function App() {
         setOpenAddNewJokePopUp,
         addNewJoke,
         deleteJoke,
+        updateJokePut,
         allUsers,
         addNewUser,
         currentDate
