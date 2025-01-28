@@ -1,9 +1,7 @@
 
 
-import AbstractMobilePhone from '../Images/AbstractMobilePhone.png';
-import MobilePhoneScreenshot from '../Images/MobilePhoneScreenshot.png';
-import RemovedBackgroundMobilePhone from '../Images/RemovedBackgroundMobilePhone.png';
 import MobileCombinedNoBackground from '../Images/MobileCombinedNoBackground.png';
+import Logo1 from '../Images/Logo1.png';
 
 import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -210,7 +208,7 @@ export default function HomePage() {
                         <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-8">
                             {/* <img
                                 alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                                src={Logo1}
                                 className="h-11"
                             /> */}
                             <div className="mt-24 sm:mt-32 lg:mt-16">
@@ -228,7 +226,7 @@ export default function HomePage() {
                                 A Dad Joke A Day Keeps the Stress Away
                             </h1>
                             <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
-                                Join the thousands of users who realize one simple thing...dad jokes are the greatest blessing dads gave us
+                                Join us to receive a smile everyday and stay to see the worldly difference we make together by giving back
                             </p>
                             <div className="mt-10 flex items-center gap-x-6">
                                 <a
@@ -237,7 +235,7 @@ export default function HomePage() {
                                 >
                                     Get started
                                 </a>
-                                <a href="#" className="text-sm/6 font-semibold text-white">
+                                <a href="/about" className="text-sm/6 font-semibold text-white">
                                     Learn more <span aria-hidden="true">→</span>
                                 </a>
                             </div>

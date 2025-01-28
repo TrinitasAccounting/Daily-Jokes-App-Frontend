@@ -1,5 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Logo1 from '../Images/Logo1.png';
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -31,8 +32,8 @@ export default function Navbar() {
                         <div className="flex shrink-0 items-center">
                             <img
                                 alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                                className="h-8 w-auto"
+                                src={Logo1}
+                                className="h-10 w-auto"
                             />
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
