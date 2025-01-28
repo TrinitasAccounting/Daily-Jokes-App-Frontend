@@ -11,6 +11,7 @@ import AboutPage from './Components/AboutPage';
 import JokesPage from './Components/Jokes Page/JokesPage';
 import UserSignUpPage from './Components/UserSignUpPage/UserSignUpPage';
 import DonationsMainPage from './Components/DonationsPage/DonationsMainPage';
+import TextLegalConsentForm from './Components/TextingLegal/TextLegalConsentForm';
 
 
 
@@ -34,9 +35,14 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <UserSignUpPage />
-      }, {
+      },
+      {
         path: '/donations',
         element: <DonationsMainPage />
+      },
+      {
+        path: '/text/legal',
+        element: <TextLegalConsentForm />
       },
     ]
   }

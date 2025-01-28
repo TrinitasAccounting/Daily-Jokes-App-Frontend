@@ -1,6 +1,5 @@
 
 import { useOutletContext } from "react-router-dom";
-import JokesTable from "./JokesTable";
 import JokesStackedListTable from "./JokesDesignComponents/JokesStackedListTable";
 import JokesStackedListHeader from "./JokesDesignComponents/JokesStackedListHeader";
 import TopUsersRankedHeader from "./JokesDesignComponents/TopUsersRankedHeader";

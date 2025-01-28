@@ -4,6 +4,7 @@
 // import { useState } from 'react'
 // import { Dialog, DialogPanel } from '@headlessui/react'
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { WiDayCloudy } from 'react-icons/wi';
 import GivingPicture from '../Images/GivingPicture.jpg';
 
 
@@ -15,35 +16,35 @@ const stats = [
 ]
 const values = [
     {
-        name: 'Be world-class',
+        name: 'Honesty and Character',
         description:
-            'Aut illo quae. Ut et harum ea animi natus. Culpa maiores et sed sint et magnam exercitationem quia. Ullam voluptas nihil vitae dicta molestiae et. Aliquid velit porro vero.',
+            'We believe in doing and being who we say we are to the world and behind closed doors. We make all donations and everything about the company as clear as possible. We will never hide anything from our users or anyone.',
     },
     {
-        name: 'Share everything you know',
+        name: 'Giving',
         description:
-            'Mollitia delectus a omnis. Quae velit aliquid. Qui nulla maxime adipisci illo id molestiae. Cumque cum ut minus rerum architecto magnam consequatur. Quia quaerat minima.',
+            'In a world of greed, we want to be different and give back. We know that none of us can take anything with us when we die, so our mission is to give as much as we can to this world while we have it.',
     },
     {
-        name: 'Always learning',
+        name: 'Faith',
         description:
-            'Aut repellendus et officiis dolor possimus. Deserunt velit quasi sunt fuga error labore quia ipsum. Commodi autem voluptatem nam. Quos voluptatem totam.',
+            'We are a founded on Christian principles, but our main goal is show love to this world. We believe loving others and deeply caring for those around us is most important. We encourage people of all religions to join us and bring more love into this world.',
     },
     {
-        name: 'Be supportive',
+        name: 'Being a source of Happiness to the world',
         description:
-            'Magnam provident veritatis odit. Vitae eligendi repellat non. Eum fugit impedit veritatis ducimus. Non qui aspernatur laudantium modi. Praesentium rerum error deserunt harum.',
+            'We enjoy bring a smile to peoples faces, and so we built a company around it. If we can just add 1 laugh to someone\'s day then we have made this world that much better. Join us on the journey to laughter and happiness.',
     },
     {
-        name: 'Take responsibility',
+        name: 'Always Listening, Learning, and Adapting',
         description:
-            'Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure. Non nesciunt dolorem veniam necessitatibus laboriosam voluptas perspiciatis error.',
+            'Our team has a life long desire to always be learning and adapting. We make it a priority to listen to our users feedback, and adapt to it. Sometimes it isn\'t always simple, but we promise to listen and grow together, with our user base.',
     },
-    {
-        name: 'Enjoy downtime',
-        description:
-            'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
-    },
+    // {
+    //     name: 'Enjoy downtime',
+    //     description:
+    //         'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
+    // },
 ]
 
 

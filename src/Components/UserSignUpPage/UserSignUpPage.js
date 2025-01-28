@@ -2,12 +2,15 @@
 import { useOutletContext } from 'react-router-dom'
 import { use, useState } from 'react';
 
+import TermsAndConditionsToggle from './TermsAndConditionsToggleButton';
+
 
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function UserSignUpPage() {
 
     const { addNewUser, } = useOutletContext();
+    const [enabledTermsAndConditions, setEnabledTermsAndConditions] = useState(false)
 
     const [addUserForm, setAddUserForm] = useState({
         email: "",
@@ -42,8 +45,10 @@ export default function UserSignUpPage() {
 
 
 
+
+
     return (
-        <div className="relative isolate bg-gray-900 h-screen">
+        <div className="relative isolate bg-gray-900 sm:h-screen">
             <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
                 <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
                     <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -179,7 +184,7 @@ export default function UserSignUpPage() {
                             <div className="col-span-2 grid grid-cols-8 gap-x-8">
 
 
-                                <div className="sm:col-span-2">
+                                <div className="sm:col-span-2 col-span-2">
                                     <label htmlFor="phone-number" className="block text-sm/6 font-semibold text-white">
                                         Country Code
                                     </label>
@@ -194,13 +199,13 @@ export default function UserSignUpPage() {
                                         />
                                     </div>
                                 </div>
-                                <div className="sm:col-span-6">
+                                <div className="sm:col-span-6 col-span-6">
                                     <div className="grid grid-cols-4">
 
-                                        <label htmlFor="phone-number" className="col-span-1 block text-sm/6 font-semibold text-white">
+                                        <label htmlFor="phone-number" className="sm:col-span-1 col-span-2 block text-sm/6 font-semibold text-white">
                                             Phone number
                                         </label>
-                                        <label htmlFor="phone-number" className="col-span-2 px-2 block text-sm/6 font-semibold text-gray-400">
+                                        <label htmlFor="phone-number" className="sm:col-span-2 col-span-2 sm:px-2 px-1 block text-sm/6 font-semibold text-gray-400">
                                             123-456-7890
                                         </label>
                                     </div>
@@ -218,7 +223,7 @@ export default function UserSignUpPage() {
                             </div>
 
 
-                            <div className="sm:col-span-2">
+                            <div className="sm:col-span-2 col-span-2">
                                 <label htmlFor="message" className="block text-sm/6 font-semibold text-white">
                                     Username
                                 </label>
@@ -234,7 +239,38 @@ export default function UserSignUpPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-8 flex justify-end">
+                        <div className="mt-6">
+                            <TermsAndConditionsToggle setEnabledTermsAndConditions={setEnabledTermsAndConditions} enabledTermsAndConditions={enabledTermsAndConditions} />
+                        </div>
+
+                        {/* Verifying that the phone number is the correct length and the terms and conditions is selected */}
+                        {/* Need to add a regular expression here to make sure it is a phone number format, one of the validations I will add */}
+                        {(enabledTermsAndConditions && !(addUserForm.phoneNumber.length < 12) && !(addUserForm.phoneNumber.length > 12)) ?
+                            <div className="mt-8 flex justify-end">
+                                <button
+                                    type="submit"
+                                    onClick={handleSubmissionOfAddNewUser}
+                                    className="rounded-md bg-amber-200 px-3.5 py-2.5 text-center text-sm font-semibold text-gray- shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                                >
+                                    Subscribe
+                                </button>
+                            </div>
+
+                            :
+
+                            <div className="mt-8 flex justify-end">
+                                <a
+                                    className="rounded-md bg-gray-600 px-3.5 py-2.5 text-center text-sm font-semibold text-gray- shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                                >
+                                    Subscribe
+                                </a>
+                            </div>
+
+
+
+
+                        }
+                        {/* <div className="mt-8 flex justify-end">
                             <button
                                 type="submit"
                                 onClick={handleSubmissionOfAddNewUser}
@@ -242,7 +278,7 @@ export default function UserSignUpPage() {
                             >
                                 Subscribe
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>

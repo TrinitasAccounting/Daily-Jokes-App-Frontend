@@ -10,6 +10,25 @@ import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/soli
 import { useOutletContext } from 'react-router-dom';
 
 
+// What customers receive daily, weekly, monthly
+const incentives = [
+    {
+        name: 'Daily Jokes via Text',
+        description: "Every day users receive a sms text with a new dad joke from our database of over 1000 dad jokes!",
+        imageSrc: 'https://tailwindui.com/plus/img/ecommerce/icons/icon-chat-light.svg',
+    },
+    {
+        name: 'Personalized Donations to Charity',
+        description: 'A user selected from multiple of or partner charities, and we donate over half of our revenue every month to the charity they choose!',
+        imageSrc: 'https://tailwindui.com/plus/img/ecommerce/icons/icon-gift-card-light.svg',
+    },
+    {
+        name: 'Weekly Charity Updates via Text',
+        description: "Every Friday we send out a donations update/post, so we all can see the tangible changes we are helping make for this world!",
+        imageSrc: 'https://tailwindui.com/plus/img/ecommerce/icons/icon-delivery-light.svg',
+    },
+
+]
 
 
 // For the bottom page links section
@@ -166,7 +185,7 @@ export default function HomePage() {
     return (
         <div className="bg-gray-900">
             <main>
-                {/* Hero section */}
+                {/* First section of landing page content, tag line and picture */}
                 <div className="relative isolate overflow-hidden">
                     <svg
                         aria-hidden="true"
@@ -236,7 +255,7 @@ export default function HomePage() {
                                     Get started
                                 </a>
                                 <a href="/about" className="text-sm/6 font-semibold text-white">
-                                    Learn more <span aria-hidden="true">→</span>
+                                    Learn more about us <span aria-hidden="true">→</span>
                                 </a>
                             </div>
                         </div>
@@ -247,11 +266,34 @@ export default function HomePage() {
                                     src={MobileCombinedNoBackground}
                                     width={2432}
                                     height={1442}
-                                    className=" w-[38rem] rounded-[40px]  "
+                                    className=" sm:w-[38rem] w-[30rem] rounded-[40px]  "
                                 />
 
                             </div>
                         </div>
+                    </div>
+                </div>
+
+
+                {/* Customer Incentives section */}
+                <div className="bg-gray-800">
+                    <div className="flex justify-center ">
+                        <p className="text-gray-100 sm:text-6xl text-2xl mt-10">What We Actually Do</p>
+                    </div>
+                    <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+                        <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+                            {incentives.map((incentive) => (
+                                <div key={incentive.name}>
+                                    <img alt="" src={incentive.imageSrc} className="h-24 w-auto bg-gray-300 rounded-3xl" />
+                                    <h3 className="mt-6 text-md font-medium text-gray-100">{incentive.name}</h3>
+                                    <p className="mt-2 text-md text-gray-400">{incentive.description}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                    <div className="flex justify-center ">
+                        <h2 className="text-gray-100 max-w-2xl">***Announcement: we are super excited to say we have a mobile app in development, we are hopeful it will launch in the next 3-4 months. Eliminating the need for boring text, and opening the door to a much more interactive experience for our users.</h2>
                     </div>
                 </div>
 
