@@ -10,7 +10,7 @@ import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/soli
 import { useOutletContext } from 'react-router-dom';
 
 
-// What customers receive daily, weekly, monthly
+// What customers receive daily, weekly, monthly in the customer incentives section
 const incentives = [
     {
         name: 'Daily Jokes via Text',
@@ -185,6 +185,7 @@ export default function HomePage() {
     return (
         <div className="bg-gray-900">
             <main>
+
                 {/* First section of landing page content, tag line and picture */}
                 <div className="relative isolate overflow-hidden">
                     <svg
@@ -276,7 +277,7 @@ export default function HomePage() {
 
 
                 {/* Customer Incentives section */}
-                <div className="bg-gray-800">
+                <div className="bg-gray-900">
                     <div className="flex justify-center ">
                         <p className="text-gray-100 sm:text-6xl text-2xl mt-10">What We Actually Do</p>
                     </div>
