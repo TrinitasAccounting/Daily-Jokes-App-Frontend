@@ -6,7 +6,7 @@ import TermsAndConditionsToggle from './TermsAndConditionsToggleButton';
 
 
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { SiPandas } from 'react-icons/si';
+
 
 
 

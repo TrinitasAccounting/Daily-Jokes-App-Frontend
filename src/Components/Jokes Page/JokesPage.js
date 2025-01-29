@@ -1,9 +1,10 @@
 
-import { useOutletContext } from "react-router-dom";
 import JokesStackedListTable from "./JokesDesignComponents/JokesStackedListTable";
 import JokesStackedListHeader from "./JokesDesignComponents/JokesStackedListHeader";
 import TopUsersRankedHeader from "./JokesDesignComponents/TopUsersRankedHeader";
 import TopUsersRankedList from "./JokesDesignComponents/TopUsersRankedList";
+
+
 
 
 function JokesPage() {
