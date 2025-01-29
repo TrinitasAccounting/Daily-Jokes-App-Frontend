@@ -1,16 +1,13 @@
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import moment from "moment";
 
-import { Outlet, useOutletContext } from "react-router-dom";
+import { Outlet, } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import './App.css';
-// import HomePage from './Components/HomePage';
 import Navbar from "./Components/Navbar";
-// import AboutPage from './Components/AboutPage';
-// import NavTest from "./Components/NavTest";
+
 
 
 

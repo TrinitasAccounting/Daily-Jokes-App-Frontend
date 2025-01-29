@@ -8,7 +8,7 @@ import { useOutletContext } from 'react-router-dom';
 import { useState } from 'react'
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { LinkIcon, PlusIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
+
 
 
 
@@ -29,16 +29,19 @@ export default function AddNewJokeForm() {
         username: ""
     })
 
+    // updates the joke form when user is typing
     const handleChangeNewJokeForm = (event) => {
         setAddNewJokeForm({ ...addNewJokeForm, [event.target.name]: event.target.value })
     }
 
+    // handles the submission and adding of the joke to the database, and closes the pop up box
     const handleFormSubmissionNewJoke = (event) => {
         event.preventDefault();
         addNewJoke(addNewJokeForm)
 
         setOpenAddNewJokePopUp(!openAddNewJokePopUp)
     }
+
 
 
 
@@ -58,7 +61,9 @@ export default function AddNewJokeForm() {
                         >
                             <form className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                 <div className="flex-1">
-                                    {/* Header */}
+
+
+                                    {/* Header text at the top of the form*/}
                                     <div className="bg-gray-50 px-4 py-6 sm:px-6">
                                         <div className="flex items-start justify-between space-x-3">
                                             <div className="space-y-1">
@@ -88,9 +93,11 @@ export default function AddNewJokeForm() {
                                         </div>
                                     </div>
 
-                                    {/* Divider container */}
+
+
+                                    {/* Joke input boxes the user types into*/}
                                     <div className="space-y-6 py-6 sm:space-y-0 sm:divide-y sm:divide-gray-200 sm:py-0">
-                                        {/* Project name */}
+                                        {/* Author name */}
                                         <div className="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
                                             <div>
                                                 <label htmlFor="project-name" className="block text-sm/6 font-medium text-gray-900 sm:mt-1.5">
@@ -109,7 +116,7 @@ export default function AddNewJokeForm() {
                                             </div>
                                         </div>
 
-                                        {/* Project description */}
+                                        {/* Joke Body/Question */}
                                         <div className="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
                                             <div>
                                                 <label
@@ -131,6 +138,7 @@ export default function AddNewJokeForm() {
                                             </div>
                                         </div>
 
+                                        {/* Joke Punch Line/Answer */}
                                         <div className="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
                                             <div>
                                                 <label
@@ -157,8 +165,7 @@ export default function AddNewJokeForm() {
 
 
 
-
-                                {/* Action buttons */}
+                                {/* Action buttons at the bottom of the form to cancel or submit */}
                                 <div className="shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
                                     <div className="flex justify-end space-x-3">
                                         <button
@@ -178,6 +185,7 @@ export default function AddNewJokeForm() {
                                     </div>
                                 </div>
                             </form>
+
                         </DialogPanel>
                     </div>
                 </div>

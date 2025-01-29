@@ -1,5 +1,5 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo1 from '../Images/Logo1.png';
 
 const navigation = [
@@ -20,6 +20,7 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
                         {/* Mobile menu button*/}
                         <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                             <span className="absolute -inset-0.5" />
@@ -28,6 +29,9 @@ export default function Navbar() {
                             <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-[open]:block" />
                         </DisclosureButton>
                     </div>
+
+
+                    {/* Mobile screen size navigation */}
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex shrink-0 items-center">
                             <img
@@ -54,10 +58,12 @@ export default function Navbar() {
                             </div>
                         </div>
                     </div>
+
+
+                    {/* Navigation for desktop */}
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-
-                        {/* Profile dropdown */}
+                        {/* Profile picture dropdown on the top right of the navbar */}
                         <Menu as="div" className="relative ml-3">
                             <div>
                                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -104,6 +110,8 @@ export default function Navbar() {
                 </div>
             </div>
 
+
+            {/* Navigation on desktop version */}
             <DisclosurePanel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (

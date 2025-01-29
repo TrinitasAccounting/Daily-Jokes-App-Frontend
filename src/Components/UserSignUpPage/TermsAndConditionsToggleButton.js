@@ -1,12 +1,12 @@
 
 
 
-'use client'
 
-import { useState } from 'react'
 import { Field, Label, Switch } from '@headlessui/react'
 
 export default function TermsAndConditionsToggle({ setEnabledTermsAndConditions, enabledTermsAndConditions }) {
+
+
 
 
     return (

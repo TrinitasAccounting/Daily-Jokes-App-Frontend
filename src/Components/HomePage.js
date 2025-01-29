@@ -1,13 +1,12 @@
 
 
 import MobileCombinedNoBackground from '../Images/MobileCombinedNoBackground.png';
-import Logo1 from '../Images/Logo1.png';
 
-import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/solid'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { MinusSmallIcon, PlusSmallIcon, } from '@heroicons/react/24/outline'
 
-import { useOutletContext } from 'react-router-dom';
+
+
 
 
 // What customers receive daily, weekly, monthly in the customer incentives section

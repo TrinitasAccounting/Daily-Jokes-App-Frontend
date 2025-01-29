@@ -2,11 +2,10 @@
 
 import { useOutletContext } from 'react-router-dom'
 import { useState } from 'react'
-import LoadingIcons from 'react-loading-icons'
 import { Oval } from 'react-loading-icons';
 
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import { Menu, MenuItem, MenuItems } from '@headlessui/react'
+
 import ViewPunchLinePopUp from './ViewPunchLinePopUp';
 
 
@@ -83,9 +82,6 @@ export default function JokesStackedListTable() {
 
         updateJokePut(newJokeObject);
     }
-
-
-
 
 
 

@@ -2,9 +2,8 @@
 
 import { useOutletContext } from 'react-router-dom'
 
-import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
+
 
 import { ImTux } from "react-icons/im";
 import { ImTongue2 } from "react-icons/im";
@@ -13,11 +12,14 @@ import { ImSleepy2 } from "react-icons/im";
 import { ImHipster2 } from "react-icons/im";
 import { ImHappy2 } from "react-icons/im";
 
+
+
+
 export default function ViewPunchLinePopUp({ selectedJoke }) {
 
     const { openViewPunchLinePopUp, setOpenViewPunchLinePopUp } = useOutletContext();
 
-    console.log(selectedJoke);
+
 
     // Switching the icon symbol bassed on the joke Id
     function alternatePunchLineSymbol(selectedJoke) {

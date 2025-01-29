@@ -1,10 +1,6 @@
 
 
 
-// import { useState } from 'react'
-// import { Dialog, DialogPanel } from '@headlessui/react'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { WiDayCloudy } from 'react-icons/wi';
 import GivingPicture from '../Images/GivingPicture.jpg';
 
 
@@ -65,7 +61,7 @@ export default function AboutPage() {
 
 
             <main className="isolate">
-                {/* Hero section */}
+                {/* Main top content section */}
                 <div className="relative isolate -z-10">
                     <svg
                         aria-hidden="true"
@@ -221,11 +217,6 @@ export default function AboutPage() {
                         ))}
                     </dl>
                 </div>
-
-
-
-
-
 
 
             </main>

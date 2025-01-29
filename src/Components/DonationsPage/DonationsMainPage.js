@@ -3,14 +3,7 @@
 export default function DonationsMainPage() {
     return (
         <>
-            {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full">
-          <body class="h-full">
-          ```
-        */}
+
             <main className="grid h-screen min-h-full place-items-center bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
                 <div className="text-center">
                     <h1 className="mt-0 text-balance text-5xl font-semibold tracking-tight text-gray-100 sm:text-7xl">

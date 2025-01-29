@@ -1,11 +1,15 @@
 
 import { useOutletContext } from 'react-router-dom'
-import { use, useState } from 'react';
+import { useState } from 'react';
 
 import TermsAndConditionsToggle from './TermsAndConditionsToggleButton';
 
 
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+
+
+
+
 
 export default function UserSignUpPage() {
 
@@ -26,6 +30,7 @@ export default function UserSignUpPage() {
         setAddUserForm({ ...addUserForm, [event.target.name]: event.target.value })
     };
 
+    // Adding a new user on Submit clicked and reseting the form to blank
     function handleSubmissionOfAddNewUser(event) {
         event.preventDefault();
         addNewUser(addUserForm)
@@ -46,10 +51,12 @@ export default function UserSignUpPage() {
 
 
 
-
     return (
         <div className="relative isolate bg-gray-900 sm:h-screen">
             <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+
+
+                {/* Company infomration at the top of the users sign up page */}
                 <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
                     <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                         <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
@@ -130,7 +137,7 @@ export default function UserSignUpPage() {
                 </div>
 
 
-
+                {/* The customer input form and submission information */}
                 <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
                     <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
