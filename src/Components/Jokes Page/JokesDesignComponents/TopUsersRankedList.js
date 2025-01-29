@@ -22,7 +22,7 @@ export default function TopUsersRankedList() {
             <div className="grid grid-cols-1 ">
 
                 <div className="col-span-1  my-10">
-                    <h1></h1>
+                    <div></div>
                 </div>
                 {/* <div className="col-span-1  my-10">
                     <h1></h1>
@@ -33,7 +33,7 @@ export default function TopUsersRankedList() {
             </div>
             <div className="opacity-25 h-screen">
 
-                <ul role="list" className="divide-y divide-gray-800">
+                <ul className="divide-y divide-gray-800">
                     {allUsers.map((person) => (
                         <li key={person.email} className="flex justify-between gap-x-6 py-5">
                             <div className="flex min-w-0 gap-x-4">

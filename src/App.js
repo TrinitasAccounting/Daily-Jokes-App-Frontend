@@ -22,7 +22,7 @@ function App() {
   const [openViewPunchLinePopUp, setOpenViewPunchLinePopUp] = useState(false);
   let currentDate = moment().format("MM-DD-YYYY")
 
-  let x = 47;
+
 
   // Fetches to the backend API for all Joke routes__________________________________________
 

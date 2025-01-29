@@ -83,17 +83,17 @@ const TextLegalConsentForm = () => {
                     :
 
                     <div className="mt-16 ">
-                        <a>
-                            <button type="button"
-                                className="rounded-md bg-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-300"
-                            >
-                                Complete Signing Up
-                            </button>
-                        </a>
+
+                        <button type="button"
+                            className="rounded-md bg-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-300"
+                        >
+                            Complete Signing Up
+                        </button>
+
                     </div>
                 }
                 <div className="mt-10">
-                    <a>
+                    <a href="/">
                         <button type="button"
                             className="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-300"
                         >

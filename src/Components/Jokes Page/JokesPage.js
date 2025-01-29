@@ -8,8 +8,6 @@ import TopUsersRankedList from "./JokesDesignComponents/TopUsersRankedList";
 
 function JokesPage() {
 
-    const { allJokes } = useOutletContext();
-
 
 
     return (

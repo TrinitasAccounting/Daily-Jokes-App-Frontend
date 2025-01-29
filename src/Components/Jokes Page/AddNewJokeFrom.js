@@ -16,7 +16,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 export default function AddNewJokeForm() {
 
     // The state to open and close this pop up, passed from top parent to children using Outlet
-    const { openAddNewJokePopUp, setOpenAddNewJokePopUp, allJokes, addNewJoke, currentDate } = useOutletContext();
+    const { openAddNewJokePopUp, setOpenAddNewJokePopUp, addNewJoke, currentDate } = useOutletContext();
 
     // console.log(allJokes);
 

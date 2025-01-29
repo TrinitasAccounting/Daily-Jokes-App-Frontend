@@ -10,9 +10,12 @@ import ViewPunchLinePopUp from './ViewPunchLinePopUp';
 
 
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//     return classes.filter(Boolean).join(' ')
+// }
+
+
+
 
 export default function JokesStackedListTable() {
 
@@ -101,19 +104,19 @@ export default function JokesStackedListTable() {
                         <h1 className="text-gray-100 text-center sm:text-3xl col-col-span-1 my-12">Loading Jokes From Our Database</h1>
                     </div>
                     <div>
-                        <h1 className="text-gray-100 col-col-span-1  my-12"></h1>
+                        <div className="text-gray-100 col-col-span-1  my-12"></div>
                     </div>
                     <div>
-                        <h1 className="text-gray-100 col-col-span-1  my-12"></h1>
+                        <div className="text-gray-100 col-col-span-1  my-12"></div>
                     </div>
                 </div>
 
                 :
 
-                // THis is the jokes list mapped through and output in list format
+                // This is the jokes list mapped through and output in list format
                 <div className=" ">
 
-                    <ul role="list" className=" divide-y divide-gray-100 ">
+                    <ul className=" divide-y divide-gray-100 ">
                         {allJokes.map((joke) => (
                             <li key={joke.jokeId} className="flex items-center justify-between gap-x-6 py-5 ">
                                 <div className="min-w-0 ">

@@ -6,6 +6,7 @@ import TermsAndConditionsToggle from './TermsAndConditionsToggleButton';
 
 
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { SiPandas } from 'react-icons/si';
 
 
 
@@ -266,11 +267,11 @@ export default function UserSignUpPage() {
                             :
 
                             <div className="mt-8 flex justify-end">
-                                <a
+                                <span
                                     className="rounded-md bg-gray-600 px-3.5 py-2.5 text-center text-sm font-semibold text-gray- shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                                 >
                                     Subscribe
-                                </a>
+                                </span>
                             </div>
 
 

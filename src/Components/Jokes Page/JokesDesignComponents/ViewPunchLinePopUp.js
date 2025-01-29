@@ -24,46 +24,42 @@ export default function ViewPunchLinePopUp({ selectedJoke }) {
     // Switching the icon symbol bassed on the joke Id
     function alternatePunchLineSymbol(selectedJoke) {
         let backgroundNumber = (selectedJoke.jokeId + 7) % 5;
-        {
-            switch (backgroundNumber) {
-                case 1:
-                    return (<ImTux size={75} />);
-                case 2:
-                    return (<ImTongue2 size={75} />);
-                case 3:
-                    return (<ImWink2 size={75} />);
-                case 4:
-                    return (<ImSleepy2 size={75} />);
-                case 5:
-                    return (<ImHipster2 size={75} />);
-                case 6:
-                    return (<ImHappy2 size={75} />);
-                default:
-                    return (<ImTux size={75} />);
-            }
+        switch (backgroundNumber) {
+            case 1:
+                return (<ImTux size={75} />);
+            case 2:
+                return (<ImTongue2 size={75} />);
+            case 3:
+                return (<ImWink2 size={75} />);
+            case 4:
+                return (<ImSleepy2 size={75} />);
+            case 5:
+                return (<ImHipster2 size={75} />);
+            case 6:
+                return (<ImHappy2 size={75} />);
+            default:
+                return (<ImTux size={75} />);
         }
     }
 
     // Switching the background colors based on the joke id
     function alternatePunchLineColor(selectedJoke) {
         let backgroundNumber = (selectedJoke.jokeId + 7) % 5;
-        {
-            switch (backgroundNumber) {
-                case 1:
-                    return ("relative transform overflow-hidden rounded-lg bg-yellow-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                case 2:
-                    return ("relative transform overflow-hidden rounded-lg bg-blue-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                case 3:
-                    return ("relative transform overflow-hidden rounded-lg bg-red-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                case 4:
-                    return ("relative transform overflow-hidden rounded-lg bg-green-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                case 5:
-                    return ("relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                case 6:
-                    return ("relative transform overflow-hidden rounded-lg bg-orange-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-                default:
-                    return ("relative transform overflow-hidden rounded-lg bg-yellow-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
-            }
+        switch (backgroundNumber) {
+            case 1:
+                return ("relative transform overflow-hidden rounded-lg bg-yellow-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            case 2:
+                return ("relative transform overflow-hidden rounded-lg bg-blue-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            case 3:
+                return ("relative transform overflow-hidden rounded-lg bg-red-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            case 4:
+                return ("relative transform overflow-hidden rounded-lg bg-green-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            case 5:
+                return ("relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            case 6:
+                return ("relative transform overflow-hidden rounded-lg bg-orange-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
+            default:
+                return ("relative transform overflow-hidden rounded-lg bg-yellow-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95");
         }
     }
 
