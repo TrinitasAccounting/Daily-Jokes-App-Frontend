@@ -3,16 +3,23 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo1 from '../Images/Logo1.png';
 
 const navigation = [
-    { name: 'Home', href: '/', current: true },
-    { name: 'About', href: '/about', current: false },
-    { name: 'Browse Jokes', href: '/jokes', current: false },
-    { name: 'Sign Up', href: '/signup', current: false },
-    { name: 'Donations', href: '/donations', current: false },
+    { name: 'Home', id: "", href: '/', current: false },
+    { name: 'About', id: "about", href: '/about', current: false },
+    { name: 'Browse Jokes', id: "jokes", href: '/jokes', current: false },
+    { name: 'Sign Up', id: "signup", href: '/signup', current: false },
+    { name: 'Donations', id: "donations", href: '/donations', current: false },
 ]
+
+console.log(navigation)
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
+
+
+
+
 
 export default function Navbar() {
     return (
@@ -31,7 +38,7 @@ export default function Navbar() {
                     </div>
 
 
-                    {/* Mobile screen size navigation */}
+                    {/* Desktop navigation */}
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex shrink-0 items-center">
                             <img
@@ -47,10 +54,13 @@ export default function Navbar() {
                                         key={item.name}
                                         href={item.href}
                                         aria-current={item.current ? 'page' : undefined}
+
+                                        // onClick={() => handleClickOfPage(item)}
                                         className={classNames(
                                             item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'rounded-md px-3 py-2 text-sm font-medium',
                                         )}
+
                                     >
                                         {item.name}
                                     </a>
@@ -111,7 +121,7 @@ export default function Navbar() {
             </div>
 
 
-            {/* Navigation on desktop version */}
+            {/* Navigation on mobile version */}
             <DisclosurePanel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (

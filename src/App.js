@@ -27,33 +27,29 @@ function App() {
   // Fetches to the backend API for all Joke routes__________________________________________
 
   // GET fetch for all Jokes
+  //The reason I have a setTimeout on this load time is, we are using a free developer plan server. The server will sleep every 20 minutes without activity....
+  //so it needs 5 seconds to wake up before we call our fetches. I can upgrade the Azure App Service Plan but I am currently broke so solving this fetch issue with code instead
   useEffect(() => {
-    fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes')
-      .then(res => {
-        if (res.ok) {
-          res.json().then(data => setAllJokes(data))
-        }
-        else {
-          alert("Error loading, please refresh the page")
-        }
-      })
+    const fetchData = async () => {
+      fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes')
+        .then(res => {
+          if (res.ok) {
+            res.json().then(data => setAllJokes(data))
+          }
+          else {
+            alert("Error loading, please refresh the page")
+          }
+        })
+    }
+
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 5000)
+
+    return () => clearTimeout(timer);
+
   }, [])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/jokes');
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not Ok, please refresh the page');
-  //       }
-  //       const jokeData = await response.json();
-  //       setAllJokes(jokeData)
-  //     }
-  //     catch (err) {
-  //       setError(err)
-  //     }
-  //   }
-  // }, [])
 
   // POST fetch for jokes (When I have authentication turned off, I have this ability hidden on the frontend)
   function addNewJoke(newJoke) {
@@ -132,19 +128,24 @@ function App() {
 
 
 
-
-
-
-  // Fetches to the backend API for all Users routes_________________________________________
+  // Fetches to the backend API for all Users routes______________________________________________________________
 
   // GET fetch for all Users
   useEffect(() => {
-    fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/users')
-      .then(res => {
-        if (res.ok) {
-          res.json().then(data => setAllUsers(data))
-        }
-      })
+    const fetchUsers = async () => {
+      fetch('https://app-dailyjokesapp-webapi-canada-dev-001.azurewebsites.net/api/users')
+        .then(res => {
+          if (res.ok) {
+            res.json().then(data => setAllUsers(data))
+          }
+        })
+    }
+
+    const timer = setTimeout(() => {
+      fetchUsers();
+    }, 5000);
+
+    return () => clearTimeout(timer);
   }, [])
 
 
@@ -177,9 +178,6 @@ function App() {
         }
       })
   }
-
-
-
 
 
 
