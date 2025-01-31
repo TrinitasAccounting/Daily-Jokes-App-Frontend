@@ -104,7 +104,9 @@ export default function JokesStackedListTable() {
                         <h1 className="text-gray-100 text-center sm:text-3xl col-col-span-1 my-12">Loading Jokes From Our Database</h1>
                     </div>
                     <div>
-                        <h1 className="text-gray-100 text-center  sm:text-lg col-col-span-1 my-12">Typical load time is 5 seconds, as we are using a development IIS server. If longer please refresh the page</h1>
+                        <h1 className="text-gray-100 text-center sm:text-lg col-col-span-1 my-12">Typical load time is 5 seconds, as we are using an affordable development IIS server.
+                            If longer please refresh the page (may require multiple), will only require this the first time it loads the data. May require multiple refreshes, as our server is on a non-production free plan.
+                            Meaning it shuts down when not used for 20 minutes.</h1>
                     </div>
                     <div>
                         <div className="text-gray-100 col-col-span-1  my-12"></div>
