@@ -22,7 +22,7 @@ import DeleteJokeConfirmationPopUp from './DeleteJokeConfirmationPopUp';
 export default function JokesStackedListTable() {
 
 
-    const { allJokes, currentDate, deleteJoke, updateJokePut, openViewPunchLinePopUp,
+    const { allJokes, currentDate, updateJokePut, openViewPunchLinePopUp,
         setOpenViewPunchLinePopUp, openEditJokePopUp, setOpenEditJokePopUp,
         openDeleteJokeConfirmationPopUp, setOpenDeleteJokeConfirmationPopUp
     } = useOutletContext();
