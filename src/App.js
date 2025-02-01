@@ -20,6 +20,8 @@ function App() {
   const [allUsers, setAllUsers] = useState([]);
   const [openAddNewJokePopUp, setOpenAddNewJokePopUp] = useState(false)
   const [openViewPunchLinePopUp, setOpenViewPunchLinePopUp] = useState(false);
+  const [openEditJokePopUp, setOpenEditJokePopUp] = useState(false);
+  const [openDeleteJokeConfirmationPopUp, setOpenDeleteJokeConfirmationPopUp] = useState(false);
   let currentDate = moment().format("MM-DD-YYYY")
 
 
@@ -198,7 +200,12 @@ function App() {
         setOpenViewPunchLinePopUp,
         allUsers,
         addNewUser,
-        currentDate
+        currentDate,
+        openEditJokePopUp,
+        setOpenEditJokePopUp,
+        openDeleteJokeConfirmationPopUp,
+        setOpenDeleteJokeConfirmationPopUp
+
       }} />
     </div>
 

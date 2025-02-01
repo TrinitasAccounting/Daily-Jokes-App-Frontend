@@ -5,14 +5,16 @@ import { useState } from 'react'
 import { Oval } from 'react-loading-icons';
 
 import { Menu, MenuItem, MenuItems } from '@headlessui/react'
+// import { MenuButton, } from '@headlessui/react'
+// import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 
 import ViewPunchLinePopUp from './ViewPunchLinePopUp';
+import EditJokePopUp from './EditJokePopUp';
+import DeleteJokeConfirmationPopUp from './DeleteJokeConfirmationPopUp';
 
 
 
-// function classNames(...classes) {
-//     return classes.filter(Boolean).join(' ')
-// }
+
 
 
 
@@ -20,7 +22,11 @@ import ViewPunchLinePopUp from './ViewPunchLinePopUp';
 export default function JokesStackedListTable() {
 
 
-    const { allJokes, currentDate, deleteJoke, updateJokePut, openViewPunchLinePopUp, setOpenViewPunchLinePopUp } = useOutletContext();
+    const { allJokes, currentDate, deleteJoke, updateJokePut, openViewPunchLinePopUp,
+        setOpenViewPunchLinePopUp, openEditJokePopUp, setOpenEditJokePopUp,
+        openDeleteJokeConfirmationPopUp, setOpenDeleteJokeConfirmationPopUp
+    } = useOutletContext();
+
     const [selectedJoke, setSelectedJoke] = useState({
         jokeId: 0,
         answer: "",
@@ -60,8 +66,6 @@ export default function JokesStackedListTable() {
             setLikes(likes.concat(id))
         }
     }
-
-
 
 
     // Function that will increment the likes and patch with the updated number of likes and a brand new object
@@ -118,6 +122,8 @@ export default function JokesStackedListTable() {
                 // This is the jokes list mapped through and output in list format
                 <div className=" ">
 
+
+                    {/* The mapped through list for each joke, buttons, likes, etc________________________ */}
                     <ul className=" divide-y divide-gray-100 ">
                         {allJokes.map((joke) => (
                             <li key={joke.jokeId} className="flex items-center justify-between gap-x-6 py-5 ">
@@ -185,6 +191,28 @@ export default function JokesStackedListTable() {
                                     }
 
                                     <span className='text-gray-400'>{joke.numberOfLikes}</span>
+                                    <div className='grid grid-cols-1'>
+                                        {/* The actual component is at the bottom of this .js file, being rendered in the foreground */}
+                                        <button
+                                            onClick={() => {
+                                                handleClickedSelectionOfJoke(joke)
+                                                setOpenEditJokePopUp(true)
+                                            }}
+                                            className="rounded bg-indigo-50 px-1 py-1 text-[10px] font-semibold text-amber-900 shadow-sm hover:bg-indigo-100"
+                                        >
+                                            Edit
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setOpenDeleteJokeConfirmationPopUp(true)
+                                                handleClickedSelectionOfJoke(joke)
+                                            }}
+                                            className="rounded bg-red-700 my-1 px-1 py-1 text-[10px] font-semibold text-gray-50 shadow-sm hover:bg-indigo-100"
+                                        >
+                                            Delete
+                                        </button>
+
+                                    </div>
 
 
 
@@ -195,7 +223,7 @@ export default function JokesStackedListTable() {
                                         ________________________________________ */}
                                         {/* <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
                                             <span className="sr-only">Open options</span>
-                                            <EllipsisVerticalIcon aria-hidden="true" className="size-5" />
+                                            <EllipsisVerticalIcon aria-hidden="true" className="size-7" />
                                         </MenuButton> */}
                                         <MenuItems
                                             transition
@@ -213,12 +241,12 @@ export default function JokesStackedListTable() {
 
                                             {/* Delete button on the drop down menu */}
                                             <MenuItem>
-                                                <button
+                                                {/* <button
                                                     onClick={() => deleteJoke(joke.jokeId)}
                                                     className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
                                                 >
                                                     Delete<span className="sr-only">, {joke.jokeId}</span>
-                                                </button>
+                                                </button> */}
                                             </MenuItem>
                                         </MenuItems>
                                     </Menu>
@@ -228,7 +256,11 @@ export default function JokesStackedListTable() {
                         ))}
                     </ul>
 
-                    {/* We are showing the view Punch line when the button is clicked, with this div showing in the foreground */}
+
+
+
+                    {/* We are showing the view Punch line, edit joke pop up, and the delete joke confirmation
+                     when the button is clicked, with this div showing in the foreground */}
                     {openViewPunchLinePopUp ?
                         <div>
                             <ViewPunchLinePopUp selectedJoke={selectedJoke} />
@@ -237,6 +269,23 @@ export default function JokesStackedListTable() {
                         <>
                         </>
                     }
+                    {openEditJokePopUp ?
+                        <div>
+                            <EditJokePopUp selectedJoke={selectedJoke} />
+                        </div>
+                        :
+                        <>
+                        </>
+                    }
+                    {openDeleteJokeConfirmationPopUp ?
+                        <div>
+                            <DeleteJokeConfirmationPopUp selectedJoke={selectedJoke} />
+                        </div>
+                        :
+                        <>
+                        </>
+                    }
+
                 </div>
             }
         </div>

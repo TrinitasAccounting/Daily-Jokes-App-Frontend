@@ -5,6 +5,7 @@ import { useOutletContext } from "react-router-dom"
 
 
 
+
 export default function TopUsersRankedList() {
 
     const { allUsers, } = useOutletContext();
@@ -46,18 +47,7 @@ export default function TopUsersRankedList() {
                             <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
 
                                 <p className="text-sm/12 text-white">Total Likes: {getRandomNumber(23, 78)}</p>
-                                {/* {person.lastSeen ? (
-                                    <p className="mt-1 text-xs/5 text-gray-400">
-                                        Last seen <time dateTime={person.lastSeenDateTime}>{person.lastSeen}</time>
-                                    </p>
-                                ) : (
-                                    <div className="mt-1 flex items-center gap-x-1.5">
-                                        <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-                                            <div className="size-1.5 rounded-full bg-emerald-500" />
-                                        </div>
-                                        <p className="text-xs/5 text-gray-400">Online</p>
-                                    </div>
-                                )} */}
+
                             </div>
                         </li>
                     ))}

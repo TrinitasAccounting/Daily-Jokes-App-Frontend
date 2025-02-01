@@ -10,13 +10,12 @@ const navigation = [
     { name: 'Donations', id: "donations", href: '/donations', current: false },
 ]
 
-console.log(navigation)
+
 
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-
 
 
 
